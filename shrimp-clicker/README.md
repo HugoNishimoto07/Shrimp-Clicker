@@ -1,6 +1,6 @@
-# Quasar App (quasar-project)
+# Shrimp App (shrimp-clicker)
 
-A Quasar Project
+O clicarão
 
 ## Install the dependencies
 ```bash
