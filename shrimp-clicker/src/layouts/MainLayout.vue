@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
 
-    <q-header elevated class="bg-primary text-white" height-hint="98">
+    <q-header class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title>
           <q-avatar>
@@ -12,9 +12,9 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" label="Page One" />
-        <q-route-tab to="/purchase" label="Page Two" />
-        <q-route-tab to="/achievements" label="Page Three" />
+        <q-route-tab to="/purchase" label="Comprar" />
+        <q-route-tab to="/achievments" label="Conquistas" />
+        <q-route-tab to="/login" label="Login" />
       </q-tabs>
     </q-header>
 

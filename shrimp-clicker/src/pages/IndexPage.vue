@@ -1,15 +1,19 @@
 <template>
   <q-page>
     <div 
-      class="fit full-height row justify-center items-center"
+      class="full-width row justify-between"
     >
-      <div style="overflow: auto;">
-        <div style="min-width: 60%; max-width: 60%;">
+      <div style="overflow: auto; min-width: 60%; max-width: 60%;" class="debug">
+        <div>
           <img
+            class="shrimp"
             alt="Click the Shrimp"
             src="~assets/shrimp_1f990.png"
           >
         </div>
+      </div>
+      <div>
+        <router-view />
       </div>
     </div>
   </q-page>
@@ -19,3 +23,13 @@
 export default {
 }
 </script>
+
+
+<style scoped>
+.debug {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+</style>
