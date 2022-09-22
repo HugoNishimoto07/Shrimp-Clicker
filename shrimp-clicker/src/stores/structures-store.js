@@ -1,20 +1,26 @@
 import { defineStore } from 'pinia';
 import structures from "../content/estruturas.json";
 
-let dict = {};
-structures.forEach(element => { dict[element.id] = 0 })
-let purchases = dict
-
-// Isso aqui ficou uma gambiarra, pesquisar o jeito certo de fazer isso
-
 export const useStructureStore = defineStore('StructureStore', {
   state: () => ({
     structures,
-    purchases
   }),
   
   getters: {
-    TotalCps() {
+    getCostById: (state) => {
+      return (payload) => {
+          let struct = state.structures.find( struct => struct.id === payload )
+          let qntd = parseFloat(struct.purchases)
+          let mult = parseFloat(struct.multiplicative) ** qntd;
+          let add = parseFloat(struct.additive) * qntd
+          console.log(qntd)
+          console.log(mult)
+          return (Math.ceil((parseFloat(struct.custoInit) + (add)) * (mult)))
+        }
+      }
+    },
+
+    totalCps() {
         var cps = 0;
 
         for(var key in this.purchases){
@@ -25,20 +31,12 @@ export const useStructureStore = defineStore('StructureStore', {
 
         return cps
     },
-  },
 
   actions: {
-    addStructure(payload) {
-      this.purchases[payload] += 1;
-    },
-
-    Custo(payload) {
-      let qntd = parseFloat(this.purchases[payload])
+    addStructure(payload) { //Maybe bake this into the structures file?
+      console.log(payload)
       let struct = this.structures.find( struct => struct.id === payload )
-      let mult = qntd > 0 ? parseFloat(struct.multiplicative) * qntd : 1;
-      let add = parseFloat(struct.additive) * qntd
-
-      return ((parseFloat(struct.custoInit) + (add)) * (mult))
+      struct.purchases += 1
     }
   },
 });

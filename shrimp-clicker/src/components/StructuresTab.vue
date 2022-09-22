@@ -6,12 +6,12 @@
 
     <q-list bordered>
         <q-item 
-            v-for="structure in structureStore.structures" 
+            v-for="structure in structures" 
             :key="structure.id" 
             class="q-my-sm" 
             clickable 
             v-ripple
-            @click="structureStore.addStructure(key)"
+            @click="addStructure(structure.id)"
         >
         <q-item-section avatar class="no-pointer-events">
           <q-avatar>
@@ -21,8 +21,8 @@
 
         <q-item-section class="non-selectable">
           <q-item-label>{{ structure.nome }}</q-item-label>
-          <q-item-label caption lines="1">{{ `Custo: ${structureStore.Custo(structure.id)}` }}</q-item-label>
-          <!-- <q-item-label caption lines="1">{{ `cps: ${structure.cps} quantidade atual: ${structureStore.purchases[structure.id]}` }}</q-item-label> -->
+          <q-item-label caption lines="1">{{ `Custo: ${getCostById(structure.id)}` }}</q-item-label>
+          <q-item-label caption lines="1">{{ `quantidade atual: ${structure.purchases}` }}</q-item-label>
         </q-item-section>
 
         <q-item-section side>
@@ -56,15 +56,17 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 import { useStructureStore } from '../stores/structures-store.js'
 
 export default {
   setup () {
     const structureStore = useStructureStore()
-    console.log(structureStore.purchases)
 
     return {
-      structureStore,
+      structures: computed(() => structureStore.structures),
+      getCostById: structureStore.getCostById,
+      addStructure: structureStore.addStructure
     }
   }
 }

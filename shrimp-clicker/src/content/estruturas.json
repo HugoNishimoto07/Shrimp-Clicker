@@ -7,7 +7,8 @@
         "additive": "4",
         "multiplicative": "1",
         "descrição": "Um camarão estranhamente na forma de uma seta",
-        "cps": "0.1"
+        "cps": "0.1",
+        "purchases": 0
     },
     {
         "icone": "https://c7.alamy.com/comp/2DC2RWN/old-woman-in-vietnam-is-fishing-in-a-river-2DC2RWN.jpg",
@@ -17,6 +18,7 @@
         "additive": "0",
         "multiplicative": "1.2",
         "descrição": "Um pescador experiente",
-        "cps": "1"
+        "cps": "1",
+        "purchases": 0
     }
 ]
