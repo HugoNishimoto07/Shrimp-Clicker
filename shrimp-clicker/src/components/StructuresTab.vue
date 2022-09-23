@@ -8,10 +8,12 @@
         <q-item 
             v-for="structure in structures" 
             :key="structure.id" 
+            :disable= !enoughToBuy(getCostById(structure.id))
+            :class="{ 'no-pointer-events': !enoughToBuy(getCostById(structure.id)) }"
+            clickable
             class="q-my-sm" 
-            clickable 
             v-ripple
-            @click="addStructure(structure.id)"
+            @click="purchaseStructure(structure.id, getCostById(structure.id))"
         >
         <q-item-section avatar class="no-pointer-events">
           <q-avatar>
@@ -58,12 +60,25 @@
 <script>
 import { computed } from 'vue'
 import { useStructureStore } from '../stores/structures-store.js'
+import { usePlayerStore } from '../stores/player-store.js'
 
 export default {
   setup () {
     const structureStore = useStructureStore()
+    const playerStore = usePlayerStore()
+
+    const enoughToBuy = (cost) => {
+      return (playerStore.points >= cost)
+    }
+    
+    const purchaseStructure = (id, cost) => {
+      structureStore.addStructure(id)
+      playerStore.pointDecrement(cost)
+    }
 
     return {
+      enoughToBuy,
+      purchaseStructure,
       structures: computed(() => structureStore.structures),
       getCostById: structureStore.getCostById,
       addStructure: structureStore.addStructure
