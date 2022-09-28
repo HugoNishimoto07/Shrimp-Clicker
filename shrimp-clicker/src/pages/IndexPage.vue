@@ -17,7 +17,7 @@
           >
         </div>
         <div>
-          <h2> PlanktonCoins: {{points}} </h2>
+          <h2> PlanktonCoins: {{Math.ceil(points)}} </h2>
         </div>
       </div>
       <div>
@@ -28,12 +28,14 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { usePlayerStore } from '../stores/player-store.js'
+import { useStructureStore } from '../stores/structures-store.js'
 
 export default {
   setup () {
     const playerStore = usePlayerStore()
+    const structureStore = useStructureStore()
     const shrimpAnimate = ref("200px")
 
     const clickRegister = () => {
@@ -44,6 +46,14 @@ export default {
       }, 100)
     }
 
+    const cpsUpdate = (amount) => {
+      console.log, 1000, "structureStore.totalCps"
+      playerStore.pointAdd(structureStore.totalCps)
+    }
+
+    onMounted(() => {
+      let cpsCheck = setInterval(cpsUpdate, 1000)
+    })
 
     return {
       points: computed(() => playerStore.points),

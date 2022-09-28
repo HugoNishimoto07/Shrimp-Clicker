@@ -5,37 +5,38 @@ export const useStructureStore = defineStore('StructureStore', {
   state: () => ({
     structures,
   }),
-  
+
   getters: {
     getCostById: (state) => {
       return (payload) => {
-          let struct = state.structures.find( struct => struct.id === payload )
-          let qntd = parseFloat(struct.purchases)
-          let mult = parseFloat(struct.multiplicative) ** qntd;
-          let add = parseFloat(struct.additive) * qntd
-          console.log(qntd)
-          console.log(mult)
-          return (Math.ceil((parseFloat(struct.custoInit) + (add)) * (mult)))
-        }
+        let struct = state.structures.find(struct => struct.id === payload)
+        let qntd = parseFloat(struct.purchases)
+        let mult = parseFloat(struct.multiplicative) ** qntd;
+        let add = parseFloat(struct.additive) * qntd
+        //console.log(qntd)
+        //console.log(mult)
+        return (Math.ceil((parseFloat(struct.custoInit) + (add)) * (mult)))
       }
     },
 
-    totalCps() {
-        var cps = 0;
+    totalCps(state) {
+      let cps = 0 //ARRUMAR ESSA FUNÇÃO
 
-        for(var key in this.purchases){
-            var amount = this.purchases[key];
+      state.structures.forEach((key) => {
+        console.log(key)
+        let amount = key.purchases
 
-            cps += this.structures[cps] * amount
-        }
-
-        return cps
+        cps += (parseFloat(key.cps) * parseFloat(amount))
+        console.log(cps)
+      })
+      return cps
     },
+  },
+
 
   actions: {
-    addStructure(payload) { //Maybe bake this into the structures file?
-      console.log(payload)
-      let struct = this.structures.find( struct => struct.id === payload )
+    addStructure(payload) {
+      let struct = this.structures.find(struct => struct.id === payload)
       struct.purchases += 1
     }
   },

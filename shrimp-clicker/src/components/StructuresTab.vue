@@ -50,7 +50,7 @@
         </q-item-section>
 
         <q-item-section side>
-          <q-icon name="chat_bubble" color="grey" />
+          <q-icon name="chat_bubble" color="grey" />https://Shrimp-Clicker.infravermlho.repl.co
         </q-item-section>
       </q-item>
     </q-list> -->
@@ -61,8 +61,8 @@
 import { computed } from 'vue'
 import { useStructureStore } from '../stores/structures-store.js'
 import { usePlayerStore } from '../stores/player-store.js'
-
-export default {
+  
+export default { 
   setup () {
     const structureStore = useStructureStore()
     const playerStore = usePlayerStore()
