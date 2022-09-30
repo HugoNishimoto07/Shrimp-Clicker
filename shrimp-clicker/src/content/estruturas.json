@@ -20,5 +20,27 @@
         "descrição": "Um pescador experiente",
         "cps": "1",
         "purchases": 0
+    },
+    {
+        "icone": "https://cdn-icons-png.flaticon.com/512/468/468392.png",
+        "nome": "Lagosta",
+        "id": "st_lagosta",
+        "custoInit": "200",
+        "additive": "0",
+        "multiplicative": "1.5",
+        "descrição": "O personagem secundário que rouba o protagonismo",
+        "cps": "1",
+        "purchases": 0
+    },
+    {
+        "icone": "https://static.wikia.nocookie.net/jjba/images/9/9f/QeR.png/revision/latest?cb=20170520195728&path-prefix=pt-br",
+        "nome": "Za Warudo",
+        "id": "st_zawarudo",
+        "custoInit": "300",
+        "additive": "0",
+        "multiplicative": "1.8",
+        "descrição": "Sim, o camarão tem um Stand.....",
+        "cps": "1",
+        "purchases": 0
     }
 ]
