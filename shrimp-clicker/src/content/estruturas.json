@@ -42,5 +42,16 @@
         "descrição": "Sim, o camarão tem um Stand.....",
         "cps": "2",
         "purchases": 0
+    },
+    {
+        "icone": "https://static.wikia.nocookie.net/jjba/images/9/9a/JotaroKujo.png/revision/latest?cb=20170204224518&path-prefix=pt-br",
+        "nome": "Jotaro",
+        "id": "st_jotaro",
+        "custoInit": "10000",
+        "additive": "0",
+        "multiplicative": "1.8",
+        "descrição": "ORA ORA ORA ORA ORA ORA",
+        "cps": "5",
+        "purchases": 0
     }
 ]
