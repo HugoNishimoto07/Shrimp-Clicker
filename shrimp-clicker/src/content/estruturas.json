@@ -29,7 +29,7 @@
         "additive": "0",
         "multiplicative": "1.5",
         "descrição": "O personagem secundário que rouba o protagonismo",
-        "cps": "1",
+        "cps": "1.5",
         "purchases": 0
     },
     {
@@ -40,7 +40,7 @@
         "additive": "0",
         "multiplicative": "1.8",
         "descrição": "Sim, o camarão tem um Stand.....",
-        "cps": "1",
+        "cps": "2",
         "purchases": 0
     }
 ]
