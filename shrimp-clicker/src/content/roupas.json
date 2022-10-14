@@ -1,0 +1,42 @@
+[
+    {
+        "imagem": "https://cdn.discordapp.com/attachments/1021927624114712691/1030273868495065088/CamaraoNormal.png",
+        "nome": "Clicarão",
+        "id": "rp_click",
+        "custoInit": "0",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 1
+    },
+    {
+        "imagem": "https://cdn.discordapp.com/attachments/1021927624114712691/1030272461603880970/GodCamaraoZilla.png",
+        "nome": "CamarãoZilla",
+        "id": "rp_godzilla",
+        "custoInit": "100",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://cdn.discordapp.com/attachments/1021927624114712691/1030273606028111882/CamaraoAnonymous.png",
+        "nome": "Camarão Anonymous",
+        "id": "rp_anonymous",
+        "custoInit": "100",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://cdn.discordapp.com/attachments/1021927624114712691/1030276176092090389/CamaraoSkatista.png",
+        "nome": "Camarão Skatista",
+        "id": "rp_skate",
+        "custoInit": "100",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://emojipedia-us.s3.amazonaws.com/source/skype/289/shrimp_1f990.png",
+        "nome": "Camarão Animado",
+        "id": "rp_animado",
+        "custoInit": "100",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    }
+]

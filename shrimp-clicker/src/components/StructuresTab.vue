@@ -28,32 +28,24 @@
         </q-item-section>
 
         <q-item-section side>
-          <q-icon name="attach_money" color="green" />
+          <q-icon name="attach_money" :color="enoughToBuy(getCostById(structure.id)) ? 'green' : 'grey'" />
         </q-item-section>
       </q-item>
+
     </q-list>
-    <!-- <q-space />
-        <q-toolbar class="bg-primary text-white shadow-2">
-      <q-toolbar-title>Upgrades</q-toolbar-title>
-    </q-toolbar>
-    <q-list bordered>
-      <q-item v-for=" in offline" :key="contact.id" class="q-mb-sm" clickable v-ripple>
-        <q-item-section avatar>
-          <q-avatar>
-            <img :src="`https://cdn.quasar.dev/img/${contact.avatar}`">
-          </q-avatar>
-        </q-item-section>
 
-        <q-item-section>
-          <q-item-label>{{ contact.name }}</q-item-label>
-          <q-item-label caption lines="1">{{ contact.email }}</q-item-label>
-        </q-item-section>
+     <div class="q-pa-md q-gutter-sm" style="height: 80px">
+      <q-avatar
+        v-for="(purchase, index) in purchaseList"
+        :key="index"
+        size="40px"
+        class="overlapping"
+        :style="`left: ${index * 25}px`"
+      >
+        <img :src="purchase">
+      </q-avatar>
+      </div>
 
-        <q-item-section side>
-          <q-icon name="chat_bubble" color="grey" />https://Shrimp-Clicker.infravermlho.repl.co
-        </q-item-section>
-      </q-item>
-    </q-list> -->
   </div>
 </template>
 
@@ -74,6 +66,7 @@ export default {
     const purchaseStructure = (id, cost) => {
       structureStore.addStructure(id)
       playerStore.pointDecrement(cost)
+      console.log(structureStore.purchaseList)
     }
 
     return {
@@ -81,8 +74,16 @@ export default {
       purchaseStructure,
       structures: computed(() => structureStore.structures),
       getCostById: structureStore.getCostById,
-      addStructure: structureStore.addStructure
+      addStructure: structureStore.addStructure,
+      purchaseList: computed(() => structureStore.purchaseList)
     }
   }
 }
 </script>
+
+<style scoped>
+  .overlapping {
+    position: absolute;
+    bottom: 15px;
+  }
+</style>

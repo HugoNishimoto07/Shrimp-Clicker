@@ -4,6 +4,7 @@ import structures from "../content/estruturas.json";
 export const useStructureStore = defineStore('StructureStore', {
   state: () => ({
     structures,
+    purchaseList: [],
   }),
 
   getters: {
@@ -13,8 +14,6 @@ export const useStructureStore = defineStore('StructureStore', {
         let qntd = parseFloat(struct.purchases)
         let mult = parseFloat(struct.multiplicative) ** qntd;
         let add = parseFloat(struct.additive) * qntd
-        //console.log(qntd)
-        //console.log(mult)
         return (Math.ceil((parseFloat(struct.custoInit) + (add)) * (mult)))
       }
     },
@@ -38,6 +37,7 @@ export const useStructureStore = defineStore('StructureStore', {
     addStructure(payload) {
       let struct = this.structures.find(struct => struct.id === payload)
       struct.purchases += 1
+      this.purchaseList.push(struct.icone)
     }
   },
 });

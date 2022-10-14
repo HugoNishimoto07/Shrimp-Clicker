@@ -13,7 +13,7 @@
 
       <q-tabs align="right">
         <q-route-tab to="/purchase" label="Comprar" />
-        <q-route-tab to="/achievments" label="Conquistas" />
+        <q-route-tab to="/customize" label="Customizar" />
         <q-route-tab to="/login" label="Login" />
       </q-tabs>
     </q-header>

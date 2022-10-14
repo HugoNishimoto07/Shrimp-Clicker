@@ -10,6 +10,9 @@ const routes = [
         children: [
           {
             path: 'purchase', component: () => import('components/StructuresTab.vue'),
+          },
+          {
+            path: 'customize', component: () => import('components/CustomizeTab.vue'),
           }
         ]
       }

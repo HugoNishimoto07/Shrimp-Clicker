@@ -8,16 +8,16 @@
         class="center non-selectable"
         @click="clickRegister()"
       >
-        <div style="width: 200px height: 200px">
+        <div>
           <img
             class="no-pointer-events bopanim"
             alt="Click the Shrimp"
-            src="~assets/shrimp_1f990.png"
+            :src="roupaAtiva"
             :style="{ width: shrimpAnimate }"
           >
         </div>
         <div>
-          <h2> PlanktonCoins: {{Math.ceil(points)}} </h2>
+          <h2> PlanktonCoins: {{displayPoints.number.toFixed(0)}} </h2>
         </div>
       </div>
       <div>
@@ -28,21 +28,31 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
+import {gsap} from 'gsap'
+
+import { ref, reactive, computed, onMounted, watch } from 'vue'
 import { usePlayerStore } from '../stores/player-store.js'
 import { useStructureStore } from '../stores/structures-store.js'
+import { useRoupasStore } from '../stores/roupas-store.js'
 
 export default {
   setup () {
     const playerStore = usePlayerStore()
     const structureStore = useStructureStore()
-    const shrimpAnimate = ref("200px")
+    const roupasStore = useRoupasStore()
+
+    const displayPoints = reactive({
+      number: 0
+    })
+
+    const shrimpAnimate = ref("300px")
+    const currentPoints = computed(() => playerStore.points)
 
     const clickRegister = () => {
       playerStore.pointAdd(1)
-      shrimpAnimate.value = "170px"
+      shrimpAnimate.value = "250px"
       setTimeout(() => {
-        shrimpAnimate.value = "200px"
+        shrimpAnimate.value = "300px"
       }, 100)
     }
 
@@ -55,10 +65,15 @@ export default {
       let cpsCheck = setInterval(cpsUpdate, 1000)
     })
 
+    watch(currentPoints, (newPoints) => {
+      gsap.to(displayPoints, { duration: 0.5, number: Number(newPoints) || 0 })
+    })
+
     return {
-      points: computed(() => playerStore.points),
+      roupaAtiva: computed(() => roupasStore.roupaAtiva),
       shrimpAnimate,
-      clickRegister
+      clickRegister,
+      displayPoints
     }
   }
 
