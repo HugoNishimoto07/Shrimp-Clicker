@@ -1,0 +1,34 @@
+[
+    {
+        "imagem": "https://www.imagemhost.com.br/images/2021/06/11/white.jpg",
+        "nome": "Fundo do mar",
+        "id": "bg_nada",
+        "custoInit": "0",
+        "descrição": "O imenso vazio",
+        "comprado": 1
+    },
+    {
+        "imagem": "https://images8.alphacoders.com/118/1186426.png",
+        "nome": "Oceano quadrado",
+        "id": "bg_pesqueiro",
+        "custoInit": "100",
+        "descrição": "Nunca pesque sozinho",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.pinimg.com/originals/16/f3/dd/16f3dd225012310cde7639af3d196095.jpg",
+        "nome": "Water 7",
+        "id": "bg_water",
+        "custoInit": "200",
+        "descrição": "O verdadeiro one piece é os amigos que fizemos no caminho",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://images2.alphacoders.com/784/thumb-1920-784276.jpg",
+        "nome": "Subanutica",
+        "id": "bg_subnautica",
+        "custoInit": "300",
+        "descrição": "O ceu",
+        "comprado": 0
+    }
+]

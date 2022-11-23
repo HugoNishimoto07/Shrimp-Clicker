@@ -4,7 +4,7 @@
       <q-toolbar-title>Estruturas</q-toolbar-title>
     </q-toolbar>
 
-    <q-list bordered>
+    <q-list bordered class="bg-light-blue-1">
         <q-item 
             v-for="structure in structures" 
             :key="structure.id" 

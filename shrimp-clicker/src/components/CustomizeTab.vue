@@ -1,10 +1,11 @@
 <template>
   <div class="" style="display:flex; flex-direction: column; width: 350px; height:89vh;">
     <q-toolbar class="bg-primary text-white shadow-2">
-      <q-toolbar-title>Estruturas</q-toolbar-title>
+      <q-toolbar-title>Customização</q-toolbar-title>
     </q-toolbar>
 
-    <q-list bordered>
+    <q-list bordered class="bg-light-blue-1">
+        <q-item-label header>Roupas</q-item-label>
         <q-item 
             v-for="roupa in roupas" 
             :key="roupa.id" 
@@ -33,6 +34,39 @@
           <q-icon name="attach_money" :color="(enoughToBuy(roupa.custoInit) || roupa.comprado) ? 'green' : 'grey'" />
         </q-item-section>
       </q-item>
+
+      <q-separator />
+      <q-item-label header>Fundos</q-item-label>
+
+      <q-item 
+            v-for="background in backgrounds" 
+            :key="background.id" 
+            :disable= "(!enoughToBuy(background.custoInit) && !background.comprado)"
+            :class="{ 'no-pointer-events': (!enoughToBuy(background.custoInit) && !background.comprado)}"
+            clickable
+            class="q-my-sm" 
+            v-ripple
+            @click="[!background.comprado ? purchaseBackground(background.id, background.custoInit) : roupasStore.bgAtiva = background.imagem]"
+        >
+        <q-item-section avatar class="no-pointer-events">
+          <q-avatar>
+            <img :src="background.imagem">
+          </q-avatar>
+        </q-item-section>
+
+        <q-item-section class="non-selectable">
+          <q-item-label>{{ background.nome }}</q-item-label>
+          <q-item-label caption lines="1" v-if="!background.comprado">{{ `Custo: ${background.custoInit}` }}</q-item-label>
+          <q-item-label caption lines="1" v-if="background.comprado">{{ `Fundo desbloqueado!` }}</q-item-label>
+          <q-item-label caption lines="1" v-else>{{ `Fundo bloqueada` }}</q-item-label>
+
+        </q-item-section>
+
+        <q-item-section side>
+          <q-icon name="attach_money" :color="(enoughToBuy(background.custoInit) || background.comprado) ? 'green' : 'grey'" />
+        </q-item-section>
+      </q-item>
+
     </q-list>
   </div>
 </template>
@@ -55,12 +89,18 @@ export default {
       roupasStore.addRoupa(id)
       playerStore.pointDecrement(cost)
     }
+    const purchaseBackground = (id, cost) => {
+      roupasStore.addBackground(id)
+      playerStore.pointDecrement(cost)
+    }
 
     return {
       enoughToBuy,
       purchaseRoupa,
       roupasStore,
-      roupas: computed(() => roupasStore.roupas)
+      purchaseBackground,
+      roupas: computed(() => roupasStore.roupas),
+      backgrounds: computed(() => roupasStore.backgrounds)
     }
   }
 }

@@ -1,7 +1,8 @@
 <template>
   <q-page>
     <div 
-      class="full-width fit row justify-between"
+      class="full-width fit row justify-between bgimg"
+      :style="{ 'background-image': 'url(' + bgImage + ')' }"
     >
       <div 
         style="overflow: auto; min-width: 60%; max-width: 60%;" 
@@ -71,9 +72,10 @@ export default {
 
     return {
       roupaAtiva: computed(() => roupasStore.roupaAtiva),
+      bgImage: computed(() => roupasStore.bgAtiva),
       shrimpAnimate,
       clickRegister,
-      displayPoints
+      displayPoints,
     }
   }
 
@@ -85,7 +87,10 @@ export default {
 .bopanim {
   transition: 0.3s width ease;
 }
-
+.bgimg{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .center {
     display: flex;
     align-items: center;

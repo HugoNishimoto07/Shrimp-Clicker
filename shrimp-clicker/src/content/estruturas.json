@@ -33,9 +33,9 @@
         "purchases": 0
     },
     {
-        "icone": "https://static.wikia.nocookie.net/jjba/images/9/9f/QeR.png/revision/latest?cb=20170520195728&path-prefix=pt-br",
-        "nome": "Za Warudo",
-        "id": "st_zawarudo",
+        "icone": "https://rpcc.com.br/wp-content/uploads/2020/12/Pesqueiro-2.jpg",
+        "nome": "Pesqueiro",
+        "id": "st_pesqueiro",
         "custoInit": "300",
         "additive": "0",
         "multiplicative": "1.8",
@@ -44,7 +44,7 @@
         "purchases": 0
     },
     {
-        "icone": "https://static.wikia.nocookie.net/jjba/images/9/9a/JotaroKujo.png/revision/latest?cb=20170204224518&path-prefix=pt-br",
+        "icone": "http://pm1.narvii.com/8134/05481da521602f31f89f942eed3e6988263dda3cr1-500-500v2_uhq.jpg",
         "nome": "Jotaro",
         "id": "st_jotaro",
         "custoInit": "10000",
