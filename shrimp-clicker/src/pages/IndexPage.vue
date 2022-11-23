@@ -67,7 +67,13 @@ export default {
     })
 
     watch(currentPoints, (newPoints) => {
-      gsap.to(displayPoints, { duration: 0.5, number: Number(newPoints) || 0 })
+      var variation = displayPoints.number - newPoints 
+
+      if ( variation > 1 || variation < -1) {
+        gsap.to(displayPoints, { duration: 0.5, number: Number(newPoints) || 0 })
+      } else {
+        displayPoints.number = newPoints
+      }
     })
 
     return {

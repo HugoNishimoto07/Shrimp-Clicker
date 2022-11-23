@@ -14,7 +14,7 @@
             clickable
             class="q-my-sm" 
             v-ripple
-            @click="[!roupa.comprado ? purchaseRoupa(roupa.id, roupa.custoInit) : roupasStore.roupaAtiva = roupa.imagem]"
+            @click="[!roupa.comprado ? purchaseRoupa(roupa.id, roupa.custoInit, roupasStore.roupaAtiva) : roupasStore.roupaAtiva = roupa.imagem]"
         >
         <q-item-section avatar class="no-pointer-events">
           <q-avatar>
@@ -85,9 +85,10 @@ export default {
       return (playerStore.points >= cost)
     }
     
-    const purchaseRoupa = (id, cost) => {
+    const purchaseRoupa = (id, cost, imagen) => {
       roupasStore.addRoupa(id)
       playerStore.pointDecrement(cost)
+      roupasStore.roupaAtiva = imagen
     }
     const purchaseBackground = (id, cost) => {
       roupasStore.addBackground(id)
