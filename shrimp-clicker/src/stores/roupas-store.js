@@ -18,6 +18,21 @@ export const useRoupasStore = defineStore('RoupasStore', {
     addBackground(payload) {
       let struct = this.backgrounds.find(struct => struct.id === payload)
       struct.comprado = 1
+    },
+    getUnlocked(payload) {
+      let roupa = this.roupas.find(roupa => roupa.id === payload)
+
+      if (roupa){
+        return roupa.comprado
+      }
+
+      let bg = this.backgrounds.find(bg => bg.id === payload)
+
+      if (bg){
+        return bg.comprado
+      }
+
+      return "no match"
     }
   },
 });

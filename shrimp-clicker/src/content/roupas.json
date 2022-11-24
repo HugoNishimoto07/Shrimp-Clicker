@@ -32,14 +32,6 @@
         "comprado": 0
     },
     {
-        "imagem": "https://media.discordapp.net/attachments/1021927624114712691/1030270980616114236/jotaro.png",
-        "nome": "Camarão Stardust",
-        "id": "rp_stardust",
-        "custoInit": "100",
-        "descrição": "Uma roupa comum para um camarão comum",
-        "comprado": 0
-    },
-    {
         "imagem": "https://emojipedia-us.s3.amazonaws.com/source/skype/289/shrimp_1f990.png",
         "nome": "Camarão Animado",
         "id": "rp_animado",

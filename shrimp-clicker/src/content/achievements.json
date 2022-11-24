@@ -1,0 +1,29 @@
+[
+    {
+        "nome": "Camarão bebe",
+        "id": "acv_bebe",
+        "descricao": "Junte seus primeiros planktons",
+        "obtido": 1
+    },
+    {
+        "nome": "Camarão adolescente",
+        "id": "acv_adolescente",
+        "amount": 5,
+        "descricao": "Primeira mesada",
+        "obtido": 0
+    },
+    {
+        "nome": "Camarão capitalista",
+        "id": "acv_empresario",
+        "unlocks": [["st_click",5]],
+        "descricao": "Contrate suas primeiras mão de obra",
+        "obtido": 0
+    },
+    {
+        "nome": "Camarão de chapeu de palha",
+        "id": "acv_palha",
+        "unlocks": [["rp_skate",1],["bg_water",1]],
+        "descricao": "Camarão que estica",
+        "obtido": 0
+    }
+]

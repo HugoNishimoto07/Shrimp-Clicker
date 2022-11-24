@@ -22,11 +22,9 @@ export const useStructureStore = defineStore('StructureStore', {
       let cps = 0 //ARRUMAR ESSA FUNÇÃO
 
       state.structures.forEach((key) => {
-        console.log(key)
         let amount = key.purchases
 
         cps += (parseFloat(key.cps) * parseFloat(amount))
-        console.log(cps)
       })
       return cps
     },
@@ -38,6 +36,18 @@ export const useStructureStore = defineStore('StructureStore', {
       let struct = this.structures.find(struct => struct.id === payload)
       struct.purchases += 1
       this.purchaseList.push(struct.icone)
+    },
+
+    getAmount(payload) {
+      let struct = this.structures.find(struct => struct.id === payload)
+
+      if (struct) {
+        return struct.purchases
+      }
+      else {
+        return "no match"
+      }
+      
     }
   },
 });
