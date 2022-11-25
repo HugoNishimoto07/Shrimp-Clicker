@@ -5,6 +5,7 @@ export const useStructureStore = defineStore('StructureStore', {
   state: () => ({
     structures,
     purchaseList: [],
+    lagostaPower: 120
   }),
 
   getters: {
@@ -32,6 +33,9 @@ export const useStructureStore = defineStore('StructureStore', {
 
 
   actions: {
+    setLP(payload) {
+      this.lagostaPower = payload
+    },
     addStructure(payload) {
       let struct = this.structures.find(struct => struct.id === payload)
       struct.purchases += 1

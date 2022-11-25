@@ -24,6 +24,9 @@ export const useAchievementsStore = defineStore("achievements", {
     },
   },
   actions: {
+    unlock(num) {
+      achievements[num].obtido = 1
+    },
     checkForUnlocks() {
       let locked = achievements.filter((achiv) => {
         if (achiv.obtido == 0) {
@@ -31,12 +34,11 @@ export const useAchievementsStore = defineStore("achievements", {
         }
       });
 
-      let allUnlock = true
       locked.forEach((achiev) => {
+        var allUnlock = true
         if (achiev["amount"]) {
           if (playerStore.points >= achiev.amount) {
             achiev.obtido = 1;
-            return;
           }
         }
 
@@ -45,6 +47,10 @@ export const useAchievementsStore = defineStore("achievements", {
             let target = structureStore.getAmount(unlock[0]);
             if (target == "no match") {
               target = RoupasStore.getUnlocked(unlock[0]);
+            }
+
+            if (target == "no match") {
+              target = 0
             }
 
             if (target < unlock[1]) {

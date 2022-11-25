@@ -6,10 +6,31 @@
         "obtido": 1
     },
     {
+        "nome": "Camarão criança",
+        "id": "acv_adolescente",
+        "amount": 50,
+        "descricao": "Primeira mesada",
+        "obtido": 0
+    },
+    {
         "nome": "Camarão adolescente",
         "id": "acv_adolescente",
-        "amount": 5,
-        "descricao": "Primeira mesada",
+        "amount": 200,
+        "descricao": "Primeiro salario",
+        "obtido": 0
+    },
+    {
+        "nome": "Rei dos idosos",
+        "id": "acv_idosa",
+        "unlocks": [["st_idoso",7]],
+        "descricao": "Melhor-Idade",
+        "obtido": 0
+    },
+    {
+        "nome": "Camarão adulto",
+        "id": "acv_adolescente",
+        "amount": 700,
+        "descricao": "Primeiro investimento",
         "obtido": 0
     },
     {
@@ -22,8 +43,28 @@
     {
         "nome": "Camarão de chapeu de palha",
         "id": "acv_palha",
-        "unlocks": [["rp_skate",1],["bg_water",1]],
+        "unlocks": [["rp_skate",1],["bg_op",1]],
         "descricao": "Camarão que estica",
+        "obtido": 0
+    },
+    {
+        "nome": "Caçador de lagostas",
+        "id": "acv_lagosta",
+        "descricao": "Vingança nunca é plena, mata a alma e envenena",
+        "obtido": 0
+    },
+    {
+        "nome": "PSICOPATA ABSOLUTO",
+        "id": "acv_crusader",
+        "unlocks": [["st_jotaro",1],["rp_goku",1]],
+        "descricao": "SÉRIO?",
+        "obtido": 0
+    },
+    {
+        "nome": "Adestrador de lagostas",
+        "id": "acv_palha",
+        "unlocks": [["st_lagosta",5]],
+        "descricao": "Amizade, trabajo, namoro, expandir",
         "obtido": 0
     }
 ]

@@ -4,7 +4,7 @@
       <q-toolbar-title>Customização</q-toolbar-title>
     </q-toolbar>
 
-    <q-list bordered class="bg-light-blue-1">
+    <q-list bordered class="bg-light-blue-1 scroll" style="height:50vh">
         <q-item-label header>Roupas</q-item-label>
         <q-item 
             v-for="roupa in roupas" 

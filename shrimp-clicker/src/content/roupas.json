@@ -38,5 +38,85 @@
         "custoInit": "100",
         "descrição": "Uma roupa comum para um camarão comum",
         "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/mX4lYRX.png",
+        "nome": "Bom de guerra",
+        "id": "rp_ofwar",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/bkvqiMw.png",
+        "nome": "Anjarão",
+        "id": "rp_anjo",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/djGgsx7.png",
+        "nome": "Batarão",
+        "id": "rp_bat",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/MInzgha.png",
+        "nome": "Hexarão",
+        "id": "rp_hexa",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/VKuYIYf.png",
+        "nome": "Parmeirão",
+        "id": "rp_parmera",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/uAWAbSJ.png",
+        "nome": "Diabarão",
+        "id": "rp_mau",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/2uUSv22.png",
+        "nome": "Piratarão",
+        "id": "rp_op",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/OLnAcFU.png",
+        "nome": "Rangarao",
+        "id": "rp_ranger",
+        "custoInit": "500",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/GwGYeB6.png",
+        "nome": "Roborão",
+        "id": "rp_robo",
+        "custoInit": "800",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
+    },
+    {
+        "imagem": "https://i.imgur.com/9VhsG9u.png",
+        "nome": "Kakarotarão",
+        "id": "rp_goku",
+        "custoInit": "10000",
+        "descrição": "Uma roupa comum para um camarão comum",
+        "comprado": 0
     }
 ]

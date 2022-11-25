@@ -50,7 +50,7 @@
           />
         </div>
         <div>
-          <h2>PlanktonCoins: {{ displayPoints.number.toFixed(0) }}</h2>
+          <h2 class="bg-brown-4 rounded-borders">PlanktonCoins: {{ currentPoints.toFixed(0) }}</h2>
         </div>
       </div>
       <div>
@@ -64,19 +64,62 @@
       <q-card style="width: 350px" class="bg-brown text-white">
         <q-card-section class="row items-center no-wrap">
           <div>
-            <div class="text-h6 text-orange"> NOVO TITULO DESBLOQUEADO! </div>
+            <div class="text-h6 text-orange">NOVO TITULO DESBLOQUEADO!</div>
             <div class="text-weight-bold">{{ newTitulo }}</div>
             <div class="text-white">{{ newSubtitulo }}</div>
           </div>
         </q-card-section>
       </q-card>
     </q-dialog>
+
+    <q-dialog v-model="eventDialog" seamless :position="eventPos">
+      <q-card style="width: 350px">
+        <q-linear-progress
+          :value="lagostaHealth"
+          stripe
+          size="xl"
+          color="pink"
+          animation-speed="500"
+          class="q-pt-md"
+        >
+          <div class="absolute-full flex flex-center">
+            <div class="text-black">LAGOSTA</div>
+          </div>
+        </q-linear-progress>
+
+        <q-card-section class="row items-center no-wrap">
+          <div>
+            <div class="text-weight-bold text-h3">ATAQUE DE LAGOSTA</div>
+            <div class="text-black">CLICA NO BOTÃO PRA SE DEFENDER</div>
+          </div>
+
+          <q-space />
+
+          <q-btn
+            class="bg-red-10 q-pa-lg"
+            icon="warning"
+            @click="LagostaAtaque"
+          />
+        </q-card-section>
+
+        <q-linear-progress
+          :value="camaraoHealth"
+          stripe
+          size="xl"
+          color="orange"
+          animation-speed="30000"
+          class="q-pt-md"
+        >
+          <div class="absolute-full flex flex-center">
+            <div class="text-black">VOCÊ</div>
+          </div>
+        </q-linear-progress>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
 <script>
-// import {gsap} from 'gsap'
-
 import { ref, reactive, computed, onMounted, watch } from "vue";
 import { usePlayerStore } from "../stores/player-store.js";
 import { useStructureStore } from "../stores/structures-store.js";
@@ -91,6 +134,8 @@ export default {
     const achievementsStore = useAchievementsStore();
 
     const achievements = computed(() => achievementsStore.achievements);
+    const lagostaPower = computed(() => structureStore.lagostaPower);
+
     const filteredAchievements = ref(
       achievements.value.filter((achiv) => {
         if (achiv.obtido == 1) {
@@ -105,6 +150,14 @@ export default {
 
     const modal = ref(false);
     const tituloAward = ref(false);
+
+    var lagostaInProgress = false;
+    const eventDialog = ref(false);
+    const eventPosList = ["top", "left", "bottom", "right"];
+    const eventPos = ref("top");
+    const lagostaHealth = ref(1);
+    const camaraoHealth = ref(1);
+
     const newTitulo = ref("");
     const newSubtitulo = ref("");
 
@@ -114,6 +167,46 @@ export default {
     const updateTitulo = (text) => {
       modal.value = false;
       achievementsStore.tituloAtivo = text;
+    };
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+
+    const LagostaAtaque = () => {
+      eventPos.value = eventPosList[getRandomInt(4)];
+
+      lagostaHealth.value -= 0.05;
+
+      if (lagostaHealth.value < 0) {
+        playerStore.pointAdd(500);
+        eventDialog.value = false;
+
+        camaraoHealth.value = 1;
+        lagostaHealth.value = 1;
+        eventPos.value = "top";
+
+        achievementsStore.unlock(7);
+
+        setTimeout(() => {
+          lagostaInProgress = false;
+        }, "15000");
+      }
+    };
+
+    const LagostaMoment = () => {
+      eventPos.value = "top";
+      lagostaInProgress = true;
+      eventDialog.value = true;
+
+      setTimeout(() => {
+        camaraoHealth.value = 0;
+      }, "1000");
+
+      setTimeout(() => {
+        eventDialog.value = false;
+        camaraoHealth.value = 1;
+      }, "30000");
     };
 
     const clickRegister = () => {
@@ -127,6 +220,11 @@ export default {
     const cpsUpdate = (amount) => {
       playerStore.pointAdd(structureStore.totalCps);
       achievementsStore.checkForUnlocks();
+
+      console.log(lagostaPower.value)
+      if (getRandomInt(lagostaPower.value) == 1 && !lagostaInProgress) {
+        LagostaMoment();
+      }
 
       filteredAchievements.value = achievements.value.filter((achiv) => {
         if (achiv.obtido == 1) {
@@ -146,23 +244,18 @@ export default {
           (x) => !oldFilteredAchievements.includes(x)
         );
 
-        console.log(diff);
         if (diff[0]) {
-          tituloAward.value = true;
+            tituloAward.value = true;
 
-          newTitulo.value = diff[0].nome;
-          newSubtitulo.value = diff[0].descricao;
+            newTitulo.value = diff[0].nome;
+            newSubtitulo.value = diff[0].descricao;
 
-          setTimeout(() => {
-            tituloAward.value = false;
-          }, "8000");
+            setTimeout(() => {
+              tituloAward.value = false;
+            }, "5000");
         }
       }
     );
-
-    watch(currentPoints, async (newPoints) => {
-      displayPoints.number = newPoints;
-    });
 
     return {
       roupaAtiva: computed(() => roupasStore.roupaAtiva),
@@ -170,12 +263,18 @@ export default {
       tituloAtivo: computed(() => achievementsStore.tituloAtivo),
       shrimpAnimate,
       clickRegister,
-      displayPoints,
+      currentPoints,
       filteredAchievements,
       updateTitulo,
+      LagostaAtaque,
 
       newTitulo,
       newSubtitulo,
+
+      eventPos,
+      lagostaHealth,
+      camaraoHealth,
+      eventDialog,
 
       modal,
       tituloAward,
