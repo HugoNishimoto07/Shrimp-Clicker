@@ -214,7 +214,7 @@ export default {
       shrimpAnimate.value = "250px";
       setTimeout(() => {
         shrimpAnimate.value = "300px";
-      }, 500);
+      }, 100);
     };
 
     const cpsUpdate = (amount) => {
